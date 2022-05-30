@@ -28,6 +28,6 @@ export function LoginView(props) {
     );
 }
 
-LoginView.PropTypes = {
+LoginView.propTypes = {
     onLoggedIn: PropTypes.func.isRequired
 }

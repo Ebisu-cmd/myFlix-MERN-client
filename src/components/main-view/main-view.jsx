@@ -4,6 +4,7 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view'
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegistrationView } from '../register-view/register-view';
 
 export default class MainView extends React.Component {
     constructor() {
@@ -43,8 +44,16 @@ export default class MainView extends React.Component {
         });
     }
 
+    onRegister(register) {
+        this.setState({
+            register
+        });
+    }
+
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, register } = this.state;
+
+        if(!register) return <RegistrationView onRegister={registered => this.onRegister(registered)} />
 
         // if there is no user, login-view will be rendered
         if(!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;

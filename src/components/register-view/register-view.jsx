@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
-export function LoginView(props) {
+export function RegistrationView(props) {
     const [ username, setUsername ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ email, setEmail ] = useState('');
@@ -10,20 +11,22 @@ export function LoginView(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const userDetails = {
-            Username: this.state.username,
-            Password: this.state.password,
-            Email: this.state.email,
-            Birthday: this.state.birthday
-        };
+        // const userDetails = {
+        //     Username: this.state.username,
+        //     Password: this.state.password,
+        //     Email: this.state.email,
+        //     Birthday: this.state.birthday
+        // };
 
-        axios.post('https://ebisu-myflixmovieapp.herokuapp.com/users', { userDetails })
-            .then(response => {
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        // axios.post('https://ebisu-myflixmovieapp.herokuapp.com/users', { userDetails })
+        //     .then(response => {
+        //         console.log(response)
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
+
+        props.onRegister(true);
     };
 
     return (
@@ -47,4 +50,8 @@ export function LoginView(props) {
             <button type="submit" onClick={handleSubmit}>Register</button>
         </form>
     );
+}
+
+RegistrationView.propTypes = {
+    onRegister: PropTypes.func.isRequired
 }
