@@ -56,8 +56,8 @@ export default class MainView extends React.Component {
         const { movies, selectedMovie, user, register } = this.state;
 
         if(!register) return (
-            <Row className="main-view justify-content-md-center">
-                <Col md={8}>
+            <Row className="registration-view justify-content-md-center align-items-center">
+                <Col md={4}>
                     <RegistrationView onRegister={registered => this.onRegister(registered)} />
                 </Col>
             </Row>
@@ -65,8 +65,8 @@ export default class MainView extends React.Component {
 
         // if there is no user, login-view will be rendered
         if(!user) return (
-            <Row className="main-view justify-content-md-center">
-                <Col md={8}>
+            <Row className="login-view justify-content-md-center align-items-center">
+                <Col md={4}>
                     <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                 </Col>
              </Row>
@@ -78,6 +78,7 @@ export default class MainView extends React.Component {
 
         // if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all movies will be returned
         return (
+
             <Row className="main-view justify-content-md-center">
                 {selectedMovie
                     ? (
@@ -87,7 +88,7 @@ export default class MainView extends React.Component {
                     ) 
                     : movies.map(movie => (
                         <Col md={3}>
-                            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
+                            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedmovie) => { this.setSelectedMovie(newSelectedmovie) }}/>
                         </Col>
                     ))
                 }

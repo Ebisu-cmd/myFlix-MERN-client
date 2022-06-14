@@ -2,6 +2,30 @@
   color: steelblue;
 }
 
+html, body {
+  height: 100vh;
+}
+
+.registration-view {
+  height: 100vh;
+}
+
+.login-view {
+  height: 100vh;
+}
+
+.movie-card {
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  opacity: 0.8;
+}
+
+.movie-title {
+  font-size: 50px;
+}
+
 .main-view {
   text-align: center;
 }
